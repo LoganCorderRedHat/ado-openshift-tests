@@ -1,0 +1,9 @@
+[
+    {
+        "app": "openshift_networking",
+        "category": "platform",
+        "dest": "playbooks/openshift_networking/ado-deploy-networking-bootstrap.yml",
+        "src": "openshift_networking/ado-deploy-networking-bootstrap.yml",
+        "target_platform": "openshift"
+    }
+]

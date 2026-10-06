@@ -1,0 +1,21 @@
+---
+ocp_cert_manager_mode: cert
+ocp_awspca_namespace: cert-manager
+ocp_awspca_secret_name: awspca-creds
+ocp_awspca_issuer_name: awspca-clusterissuer
+ocp_awspca_region: us-gov-west-1
+ocp_awspca_pca_arn: ''
+idm:
+  acme_directory_url: ''
+  ca_bundle_file: ''
+api_host: https://api.cluster-qf4z4.dyn.redhatworkshops.io:6443
+host: https://api.cluster-qf4z4.dyn.redhatworkshops.io:6443
+domain: prod.rhlab
+apps_domain: apps.cluster-qf4z4.dyn.redhatworkshops.io
+app_domain: apps.cluster-qf4z4.dyn.redhatworkshops.io
+skip_tls_verify: true
+verify_ssl: false
+validate_certs: false
+openshift_install_htpasswd_during_bootstrap: false
+openshift_install_nfs_during_bootstrap: false
+openshift_install_iscsi_during_bootstrap: false

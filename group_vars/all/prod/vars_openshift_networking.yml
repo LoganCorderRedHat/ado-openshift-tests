@@ -1,0 +1,270 @@
+---
+ocp_networking_enabled: true
+ocp_networking_ocp_version: '4.20'
+ocp_networking_network_provider: OVNKubernetes
+ocp_networking_tenants:
+- connectivity:
+    egress_ip:
+      addresses: []
+      enabled: false
+      namespace_selector: {}
+      pod_selector: {}
+  id: 2b5ed067-6795-49f2-bce8-d30395cda266
+  namespaces:
+  - create: true
+    labels: {}
+    name: test2
+  networks:
+  - id: 9581c41e-b5aa-4ff4-bc31-8024d44458fb
+    ipam:
+      lifecycle: ''
+    join_subnets: []
+    name: test2
+    namespace_selector:
+      matchLabels: {}
+    physical_network: null
+    resource_type: UserDefinedNetwork
+    role: Primary
+    scope: namespace
+    subnets:
+    - cidr: 192.168.91.0/24
+      host_subnet: 0
+    topology: Layer2
+  security:
+    egress_firewall:
+      enabled: false
+      rules: []
+    multi_network_policy:
+      custom_rules:
+      - direction: ingress
+        peers:
+        - pod_selector: {}
+          type: sameNamespace
+        ports: []
+      - direction: egress
+        peers:
+        - pod_selector: {}
+          type: sameNamespace
+        ports: []
+      enabled: true
+      pod_selector: {}
+      template: custom
+    network_policy:
+      custom_rules:
+      - direction: ingress
+        peers:
+        - pod_selector: {}
+          type: sameNamespace
+        ports:
+        - endPort: ''
+          port: '8080'
+          protocol: TCP
+      - direction: egress
+        peers:
+        - pod_selector: {}
+          type: sameNamespace
+        ports:
+        - endPort: ''
+          port: ''
+          protocol: TCP
+      enabled: false
+      pod_selector: {}
+      template: custom
+  tenant_name: test2
+ocp_networking_cluster_security:
+  admin_network_policies: []
+  baseline_admin_network_policy: null
+ocp_networking_physical_networks: []
+ocp_networking_ingress:
+  additional_ingress_controller:
+    enabled: false
+  additional_ingress_controllers: []
+ocp_networking_load_balancing:
+  metallb:
+    address_pools: []
+    bgp_advertisements: []
+    bgp_peers: []
+    enabled: false
+    l2_advertisements: []
+component_config:
+  openshift_networking:
+    hostname: ''
+    storage: ''
+    enabled: true
+    ocp_version: '4.20'
+    network_provider: OVNKubernetes
+    tenants:
+    - id: 2b5ed067-6795-49f2-bce8-d30395cda266
+      tenant_name: test2
+      namespaces:
+      - name: test2
+        create: true
+        labels: {}
+      networks:
+      - id: 9581c41e-b5aa-4ff4-bc31-8024d44458fb
+        name: test2
+        scope: namespace
+        resource_type: UserDefinedNetwork
+        role: Primary
+        topology: Layer2
+        subnets:
+        - cidr: 192.168.91.0/24
+          host_subnet: 0
+        ipam:
+          lifecycle: ''
+        physical_network: null
+        namespace_selector:
+          matchLabels: {}
+        join_subnets: []
+      security:
+        network_policy:
+          enabled: false
+          template: custom
+          pod_selector: {}
+          custom_rules:
+          - direction: ingress
+            peers:
+            - type: sameNamespace
+              pod_selector: {}
+            ports:
+            - protocol: TCP
+              port: '8080'
+              endPort: ''
+          - direction: egress
+            peers:
+            - type: sameNamespace
+              pod_selector: {}
+            ports:
+            - protocol: TCP
+              port: ''
+              endPort: ''
+        multi_network_policy:
+          enabled: true
+          template: custom
+          custom_rules:
+          - direction: ingress
+            peers:
+            - type: sameNamespace
+              pod_selector: {}
+            ports: []
+          - direction: egress
+            peers:
+            - type: sameNamespace
+              pod_selector: {}
+            ports: []
+          pod_selector: {}
+        egress_firewall:
+          enabled: false
+          rules: []
+      connectivity:
+        egress_ip:
+          enabled: false
+          addresses: []
+          namespace_selector: {}
+          pod_selector: {}
+    cluster_security:
+      admin_network_policies: []
+      baseline_admin_network_policy: null
+    physical_networks: []
+    ingress:
+      additional_ingress_controllers: []
+      additional_ingress_controller:
+        enabled: false
+    load_balancing:
+      metallb:
+        enabled: false
+        address_pools: []
+        l2_advertisements: []
+        bgp_peers: []
+        bgp_advertisements: []
+    replicas: 1
+hostname: ''
+storage: ''
+enabled: true
+ocp_version: '4.20'
+network_provider: OVNKubernetes
+tenants:
+- id: 2b5ed067-6795-49f2-bce8-d30395cda266
+  tenant_name: test2
+  namespaces:
+  - name: test2
+    create: true
+    labels: {}
+  networks:
+  - id: 9581c41e-b5aa-4ff4-bc31-8024d44458fb
+    name: test2
+    scope: namespace
+    resource_type: UserDefinedNetwork
+    role: Primary
+    topology: Layer2
+    subnets:
+    - cidr: 192.168.91.0/24
+      host_subnet: 0
+    ipam:
+      lifecycle: ''
+    physical_network: null
+    namespace_selector:
+      matchLabels: {}
+    join_subnets: []
+  security:
+    network_policy:
+      enabled: false
+      template: custom
+      pod_selector: {}
+      custom_rules:
+      - direction: ingress
+        peers:
+        - type: sameNamespace
+          pod_selector: {}
+        ports:
+        - protocol: TCP
+          port: '8080'
+          endPort: ''
+      - direction: egress
+        peers:
+        - type: sameNamespace
+          pod_selector: {}
+        ports:
+        - protocol: TCP
+          port: ''
+          endPort: ''
+    multi_network_policy:
+      enabled: true
+      template: custom
+      custom_rules:
+      - direction: ingress
+        peers:
+        - type: sameNamespace
+          pod_selector: {}
+        ports: []
+      - direction: egress
+        peers:
+        - type: sameNamespace
+          pod_selector: {}
+        ports: []
+      pod_selector: {}
+    egress_firewall:
+      enabled: false
+      rules: []
+  connectivity:
+    egress_ip:
+      enabled: false
+      addresses: []
+      namespace_selector: {}
+      pod_selector: {}
+cluster_security:
+  admin_network_policies: []
+  baseline_admin_network_policy: null
+physical_networks: []
+ingress:
+  additional_ingress_controllers: []
+  additional_ingress_controller:
+    enabled: false
+load_balancing:
+  metallb:
+    enabled: false
+    address_pools: []
+    l2_advertisements: []
+    bgp_peers: []
+    bgp_advertisements: []
+replicas: 1
